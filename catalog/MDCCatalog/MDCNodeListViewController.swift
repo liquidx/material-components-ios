@@ -349,9 +349,12 @@ extension MDCNodeListViewController {
         vc = contentVC
       } else {
         let container = MDCAppBarContainerViewController(contentViewController: contentVC)
+
         container.appBar.navigationBar.titleAlignment = .center
         container.appBar.navigationBar.tintColor = UIColor.white
-        container.appBar.navigationBar.titleTextAttributes = [ NSForegroundColorAttributeName: UIColor.white ]
+        container.appBar.navigationBar.titleTextAttributes = [
+          NSForegroundColorAttributeName: UIColor.white,
+          NSFontAttributeName: UIFont(name: "RobotoMono-Regular", size: 16)!]
 
         // TODO(featherless): Remove once
         // https://github.com/material-components/material-components-ios/issues/367 is resolved.
