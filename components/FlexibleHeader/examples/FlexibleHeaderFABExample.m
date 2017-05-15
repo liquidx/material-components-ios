@@ -21,6 +21,8 @@
 #import "MaterialButtons.h"
 #import "MaterialFlexibleHeader.h"
 
+#define MDC_CATALOG_GREEN [UIColor colorWithRed:0 green:0xe6/255.0f blue:0x76/255.0f alpha:1]
+
 static const CGFloat kFlexibleHeaderMinHeight = 200.f;
 
 @interface FlexibleHeaderFABExample () <UIScrollViewDelegate>
@@ -64,21 +66,15 @@ static const CGFloat kFlexibleHeaderMinHeight = 200.f;
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+  [self loadCollectionView];
 
-  self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-  self.scrollView.backgroundColor = [UIColor whiteColor];
-  self.scrollView.autoresizingMask =
-      UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-  [self.view addSubview:self.scrollView];
-
-  self.scrollView.delegate = self;
-  self.fhvc.headerView.trackingScrollView = self.scrollView;
+  self.fhvc.headerView.trackingScrollView = self.collectionView;
 
   self.fhvc.view.frame = self.view.bounds;
   [self.view addSubview:self.fhvc.view];
   [self.fhvc didMoveToParentViewController:self];
 
-  self.fhvc.headerView.backgroundColor = [UIColor colorWithWhite:0.1 alpha:1.0];
+  self.fhvc.headerView.backgroundColor = [UIColor colorWithWhite:0.1f alpha:1];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -89,7 +85,7 @@ static const CGFloat kFlexibleHeaderMinHeight = 200.f;
   [self.navigationController setNavigationBarHidden:YES animated:animated];
 
   self.floatingButton = [[MDCFloatingButton alloc] init];
-  [self.floatingButton setBackgroundColor:[UIColor colorWithRed:11/255.0 green:232/255.0 blue:94/255.0 alpha:1]
+  [self.floatingButton setBackgroundColor:MDC_CATALOG_GREEN
                                  forState:UIControlStateNormal];
   [self.floatingButton sizeToFit];
   self.floatingButton.center = CGPointMake(
