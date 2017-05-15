@@ -32,7 +32,8 @@ class AppBarModalPresentationSwiftExamplePresented: UITableViewController {
     appBar.headerViewController.headerView.backgroundColor = color
     appBar.navigationBar.tintColor = UIColor.white
     appBar.navigationBar.titleTextAttributes =
-      [ NSForegroundColorAttributeName: UIColor.white ]
+      [ NSForegroundColorAttributeName: UIColor.white,
+        NSFontAttributeName: UIFont.init(name: "RobotoMono-Regular", size: 16)!]
     self.modalPresentationStyle = .formSheet
     self.modalTransitionStyle = .coverVertical
   }
@@ -108,7 +109,8 @@ class AppBarModalPresentationSwiftExample: UITableViewController {
     appBar.headerViewController.headerView.backgroundColor = color
     appBar.navigationBar.tintColor = UIColor.white
     appBar.navigationBar.titleTextAttributes =
-      [ NSForegroundColorAttributeName: UIColor.white ]
+      [ NSForegroundColorAttributeName: UIColor.white,
+        NSFontAttributeName: UIFont.init(name: "RobotoMono-Regular", size: 16)!]
   }
 
   required init?(coder aDecoder: NSCoder) {
